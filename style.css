@@ -16,6 +16,23 @@ body {
   justify-content: center;
   align-items: center;
   background-color: antiquewhite;
+  position: relative;
+}
+
+.model {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  bottom: 0px;
+  background-color: rgba(143, 119, 119, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
 }
 
 .container {
@@ -33,6 +50,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.winning-msg {
+  font-size: 18rem;
 }
 
 /* Small devices (landscape phones, 576px and up) */
