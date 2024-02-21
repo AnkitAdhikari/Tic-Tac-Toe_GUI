@@ -2,11 +2,13 @@
 const fields2 = document.querySelectorAll('.field');
 console.log(fields2)
 
+const overlay = document.querySelector('.overlay');
 const model = document.querySelector('.model');
+const newGameBtn = document.querySelector('.newgame-btn')
 
-const player1 = [];
+let player1 = [];
 
-const player2 = [];
+let player2 = [];
 
 let winnerName = '';
 
@@ -32,12 +34,16 @@ fields2.forEach((field) => {
       const won = checkWinningCondition();
       if (won) {
         updateWinnerName();
-        displayWinningMessage();
+        toggleWinningMessage();
       }
       changePlayer();
     }
 
   })
+})
+
+newGameBtn.addEventListener('click', (e) => {
+  init();
 })
 
 function changePlayer() {
@@ -61,16 +67,23 @@ function updateWinnerName() {
   document.querySelector('.winnerName').textContent = winnerName;
 }
 
-function displayWinningMessage() {
+function toggleWinningMessage() {
+  overlay.classList.toggle('hidden');
   model.classList.toggle('hidden');
 }
 
+function init() {
+  player1 = [];
+  player2 = [];
+  winnerName = '';
+  activePlayer = player1;
+  fields2.forEach(field => field.textContent = '')
+  toggleWinningMessage();
+}
+
 // TODO
-// get clicked field's value and update palyer array (#0f0)
-// check winning condition after the palyer array updates (#0f0)
-// Display winning message (#0f0)
-// Start new game after game over
+// Start new game after game over (#0f0)
 // prompt to input players name
 // display winning name
 // change palyer name afte game over
-// improve model ui
+// improve model ui (#0f0)

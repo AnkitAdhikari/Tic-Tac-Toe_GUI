@@ -15,20 +15,34 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: antiquewhite;
+  background-color: #eeedeb;
+  color: #3c3633;
   position: relative;
 }
 
-.model {
+.overlay {
   position: absolute;
   width: 100%;
   top: 0px;
   bottom: 0px;
-  background-color: rgba(143, 119, 119, 0.6);
+  background-color: #e0ccbe99;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.model {
+  position: absolute;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.6rem 3.2rem 3.2rem;
+  background-color: #7472644f;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .hidden {
@@ -36,7 +50,7 @@ body {
 }
 
 .container {
-  border: 2px solid black;
+  border: 2px solid #e0ccbe;
   width: 70rem;
   height: 70rem;
   display: grid;
@@ -45,15 +59,48 @@ body {
 }
 
 .field {
-  border: 1px solid rgb(190, 190, 190);
+  border: 2px solid rgb(190, 190, 190);
+  border-top: none;
+  border-right: none;
   font-size: 18rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.field:nth-child(1),
+.field:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.field:nth-child(7) {
+  border-bottom: none;
+}
+.field:nth-child(8) {
+  border-bottom: none;
+}
+.field:nth-child(9) {
+  border-bottom: none;
+}
+
+.newgame-btn {
+  background-color: #3c3633;
+  color: #eeedeb;
+  border: none;
+  padding: 8px 32px;
+  font-size: 2.8rem;
+}
+
+.newgame-btn:hover {
+  background-color: #504a47;
+  cursor: pointer;
+}
+
 .winning-msg {
-  font-size: 18rem;
+  font-size: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -61,7 +108,8 @@ body {
   html {
     font-size: 32.5%;
   }
-  .container {
+  .container,
+  .model {
     width: 300px;
     height: 300px;
   }
