@@ -1,6 +1,5 @@
 "strict mode";
 const fields2 = document.querySelectorAll('.field');
-console.log(fields2)
 
 // window.addEventListener('load', () => {
 //   alert("Hello guys")
@@ -93,7 +92,7 @@ function checkWinningCondition() {
 }
 
 function updateWinnerName() {
-  winnerName = activePlayer == player1 ? 'O' : 'X';
+  winnerName = activePlayer == player1 ? player1Name : player2Name;
   document.querySelector('.winnerName').textContent = winnerName;
 }
 
@@ -133,6 +132,6 @@ function init() {
 // TODO
 // Start new game after game over (#0f0)
 // prompt to input players name (#0f0)
-// display winning name
+// display winning name (#0f0)
 // change palyer name afte game over (#0f0)
 // improve model ui (#0f0)
