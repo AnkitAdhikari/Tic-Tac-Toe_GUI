@@ -9,9 +9,45 @@
   </head>
   <body>
     <div class="overlay hidden"></div>
+    <div class="name-container">
+      <div class="name-inner-container">
+        Player 1: <span class="player1-name">O</span>
+      </div>
+      <div class="name-inner-container">
+        Player 2: <span class="player2-name">X</span>
+      </div>
+    </div>
     <div class="model hidden">
       <div class="winning-msg"><span class="winnerName"></span> WON!</div>
-      <button class="newgame-btn">New Game</button>
+      <div class="btn-container">
+        <button class="newgame-btn mr-sm">New Game</button>
+        <button class="change-name-btn btn">Change name</button>
+      </div>
+    </div>
+    <div class="player-name-model">
+      <div class="player-input-container">
+        <label for="player1" class="player-label">Player 1</label>
+        <input
+          type="text"
+          class="name-input-field"
+          name="player1-name"
+          id="player1"
+          placeholder="O"
+        />
+      </div>
+      <div class="player-input-container">
+        <label for="player2" class="player-label">Player 2</label>
+        <input
+          type="text"
+          class="name-input-field"
+          name="player1-name"
+          id="player2"
+          placeholder="X"
+        />
+      </div>
+      <div class="button">
+        <button class="name-btn btn btn-sm">Save</button>
+      </div>
     </div>
     <div class="container">
       <div class="field" data-value="1"></div>

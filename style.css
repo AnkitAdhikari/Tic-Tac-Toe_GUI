@@ -20,6 +20,10 @@ body {
   position: relative;
 }
 
+.mr-sm {
+  margin-right: 1rem;
+}
+
 .overlay {
   position: absolute;
   width: 100%;
@@ -32,7 +36,8 @@ body {
   flex-direction: column;
 }
 
-.model {
+.model,
+.player-name-model {
   position: absolute;
   border: 2px solid black;
   display: flex;
@@ -83,7 +88,8 @@ body {
   border-bottom: none;
 }
 
-.newgame-btn {
+.newgame-btn,
+.btn {
   background-color: #3c3633;
   color: #eeedeb;
   border: none;
@@ -91,7 +97,13 @@ body {
   font-size: 2.8rem;
 }
 
-.newgame-btn:hover {
+.btn-sm {
+  padding: 6px 16px;
+  font-size: 2rem;
+}
+
+.newgame-btn:hover,
+.btn:hover {
   background-color: #504a47;
   cursor: pointer;
 }
@@ -101,6 +113,33 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.player-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0rem;
+}
+
+.name-input-field {
+  outline: none;
+  padding: 0.8rem 0.8rem;
+  font-size: 1.6rem;
+}
+
+.player-label {
+  font-size: 2rem;
+}
+
+.name-container {
+  display: flex;
+  position: absolute;
+  width: 100vw;
+  justify-content: space-between;
+  padding: 0px 3rem;
+  top: 5rem;
+  font-size: 2rem;
 }
 
 /* Small devices (landscape phones, 576px and up) */

@@ -2,13 +2,34 @@
 const fields2 = document.querySelectorAll('.field');
 console.log(fields2)
 
+// window.addEventListener('load', () => {
+//   alert("Hello guys")
+// })
+
 const overlay = document.querySelector('.overlay');
 const model = document.querySelector('.model');
 const newGameBtn = document.querySelector('.newgame-btn')
 
+const nameBtn = document.querySelector('.name-btn')
+
 let player1 = [];
 
 let player2 = [];
+
+const player1NameEl = document.querySelector('.player1-name');
+const player2NameEl = document.querySelector('.player2-name');
+
+const player1NameInputEl = document.getElementById('player1');
+
+const player2NameInputEl = document.getElementById('player2');
+
+const nameModel = document.querySelector(".player-name-model")
+
+const changeNameBtn = document.querySelector(".change-name-btn")
+
+let player1Name;
+
+let player2Name;
 
 let winnerName = '';
 
@@ -42,6 +63,15 @@ fields2.forEach((field) => {
   })
 })
 
+changeNameBtn.addEventListener('click', (e) => {
+  toggleNameContainer();
+})
+
+nameBtn.addEventListener('click', (e) => {
+  updateName();
+  toggleNameContainer();
+})
+
 newGameBtn.addEventListener('click', (e) => {
   init();
 })
@@ -72,6 +102,25 @@ function toggleWinningMessage() {
   model.classList.toggle('hidden');
 }
 
+function toggleNameContainer() {
+  nameModel.classList.toggle('hidden');
+}
+
+function updateName() {
+  player1Name = player1NameInputEl.value == '' ? 'X' : player1NameInputEl.value;
+
+  player1NameEl.textContent = player1Name;
+
+  player2Name = player2NameInputEl.value == '' ? 'X' : player2NameInputEl.value;
+
+  player2NameEl.textContent = player2Name;
+
+  player1NameInputEl.value = '';
+  player2NameInputEl.value = '';
+
+}
+
+
 function init() {
   player1 = [];
   player2 = [];
@@ -83,7 +132,7 @@ function init() {
 
 // TODO
 // Start new game after game over (#0f0)
-// prompt to input players name
+// prompt to input players name (#0f0)
 // display winning name
-// change palyer name afte game over
+// change palyer name afte game over (#0f0)
 // improve model ui (#0f0)
