@@ -32,6 +32,8 @@ let player2Name;
 
 let winnerName = '';
 
+let clickCount = 0;
+
 const winningCombination = [
   [1, 2, 3],
   [1, 4, 7],
@@ -48,6 +50,7 @@ let activePlayer = player1;
 fields2.forEach((field) => {
   field.addEventListener('click', (e) => {
     if (e.target.textContent == '') {
+      clickCount++;
       e.target.textContent = activePlayer == player1 ? 'O' : 'X';
       const choice = +e.target.dataset.value
       updatePlayerChoice(choice);
@@ -57,6 +60,9 @@ fields2.forEach((field) => {
         toggleWinningMessage();
       }
       changePlayer();
+      if (clickCount === 9 && !won) {
+        toggleDrawMessage();
+      }
     }
 
   })
@@ -93,11 +99,17 @@ function checkWinningCondition() {
 
 function updateWinnerName() {
   winnerName = activePlayer == player1 ? player1Name : player2Name;
-  document.querySelector('.winnerName').textContent = winnerName;
+  document.querySelector('.winnerName').textContent = winnerName + " WON!";
 }
 
 function toggleWinningMessage() {
   overlay.classList.toggle('hidden');
+  model.classList.toggle('hidden');
+}
+
+function toggleDrawMessage() {
+  overlay.classList.toggle('hidden');
+  document.querySelector('.winnerName').textContent = "DRAW!"
   model.classList.toggle('hidden');
 }
 
@@ -106,7 +118,7 @@ function toggleNameContainer() {
 }
 
 function updateName() {
-  player1Name = player1NameInputEl.value == '' ? 'X' : player1NameInputEl.value;
+  player1Name = player1NameInputEl.value == '' ? 'O' : player1NameInputEl.value;
 
   player1NameEl.textContent = player1Name;
 
@@ -127,6 +139,7 @@ function init() {
   activePlayer = player1;
   fields2.forEach(field => field.textContent = '')
   toggleWinningMessage();
+  clickCount = 0;
 }
 
 // TODO
